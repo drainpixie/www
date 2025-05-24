@@ -12,7 +12,9 @@ export function Experience({ company, start, role, end }: IExperienceProps) {
     <li className="pb-1 last:pb-0">
       <b>{role}</b> @ {company}
       <br />
-      <span>{start} – {end}</span>
+      <span>
+        {start} – {end}
+      </span>
     </li>
   );
 }

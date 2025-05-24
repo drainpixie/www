@@ -13,21 +13,21 @@ export default function Cursor() {
     // Detect touch device
     const checkTouchDevice = () => {
       setIsTouchDevice(
-        'ontouchstart' in window ||
-        navigator.maxTouchPoints > 0 ||
-        window.matchMedia('(pointer: coarse)').matches
+        "ontouchstart" in window ||
+          navigator.maxTouchPoints > 0 ||
+          window.matchMedia("(pointer: coarse)").matches,
       );
     };
 
     checkTouchDevice();
-    
+
     // Listen for changes in pointer type (e.g., external mouse connected to tablet)
-    const mediaQuery = window.matchMedia('(pointer: coarse)');
+    const mediaQuery = window.matchMedia("(pointer: coarse)");
     const handleMediaChange = () => checkTouchDevice();
-    mediaQuery.addEventListener('change', handleMediaChange);
+    mediaQuery.addEventListener("change", handleMediaChange);
 
     return () => {
-      mediaQuery.removeEventListener('change', handleMediaChange);
+      mediaQuery.removeEventListener("change", handleMediaChange);
     };
   }, []);
 
@@ -39,10 +39,10 @@ export default function Cursor() {
       cursorRef.current &&
       ((cursorRef.current.style.left = `${e.clientX}px`),
       (cursorRef.current.style.top = `${e.clientY}px`));
-    
+
     const handleMouseOver = (e: MouseEvent) =>
       (e.target as HTMLElement).closest("a") && setHovering(true);
-    
+
     const handleMouseOut = (e: MouseEvent) =>
       (e.target as HTMLElement).closest("a") && setHovering(false);
 

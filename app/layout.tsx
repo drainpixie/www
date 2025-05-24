@@ -51,9 +51,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${libre.variable} max-w-md`}
-      >
+      <body className={`${inter.variable} ${libre.variable} max-w-md`}>
         <Cursor />
         <ClickSound />
 
