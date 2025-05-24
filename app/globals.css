@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+:root {
+  --background: oklch(0.98 0.01 90);
+  --background-secondary: oklch(0.7525 0.0095 106.6);
+  --foreground: oklch(0.1 0 0);
+  --accent: oklch(0.45 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+
+  --font-body: var(--font-libre);
+  --font-display: var(--font-inter);
+}
+
+html,
+body {
+  @apply h-full m-0 p-0;
+}
+
+* {
+  @apply !cursor-none;
+}
+
+body {
+  @apply text-foreground p-10;
+}
+
+body::before {
+  content: "";
+
+  @apply fixed top-0 left-0 w-screen h-screen scale-[1.1] z-[-1] backdrop-blur-xl;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--background),
+    var(--background),
+    var(--color-background-secondary)
+  );
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display font-bold;
+}
+
+h1 {
+  @apply text-base;
+}
+
+p {
+  @apply font-body text-xs;
+}
+
+ul {
+  @apply list-inside font-body text-xs list-none;
+}
+
+ul li {
+  @apply mb-0.5;
+}
+
+ul li:last-child {
+  @apply mb-0;
+}
+
+a {
+  @apply text-accent underline underline-offset-2;
+
+  &:hover {
+    @apply text-foreground;
+  }
+}
+
+.prose {
+  @apply text-foreground;
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    @apply font-display font-bold text-foreground mt-6 mb-3 ;
+    line-height: 1.2;
+
+    & a {
+      @apply text-foreground;
+    }
+  }
+
+  & h1 {
+    @apply text-base mt-0;
+  }
+
+  & h2 {
+    @apply text-sm;
+  }
+
+  & h3 {
+    @apply text-xs font-bold;
+  }
+
+  & h4,
+  & h5,
+  & h6 {
+    @apply text-xs font-medium;
+  }
+
+  & p {
+    @apply font-body text-xs text-foreground mt-0 mb-3;
+    line-height: 1.4;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  & ul,
+  & ol {
+    @apply font-body text-xs text-foreground mt-3 mb-3 pl-0;
+
+    & li {
+      @apply mb-0.5;
+      line-height: 1.4;
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    & ul,
+    & ol {
+      @apply mt-2 mb-0 pl-4;
+    }
+  }
+
+  & ul {
+    @apply list-inside list-[square];
+  }
+
+  & ol {
+    @apply list-inside list-decimal;
+  }
+
+  & blockquote {
+    @apply font-body text-xs text-accent mt-3 mb-3 pl-4 border-l-2 border-accent italic;
+
+    & p {
+      @apply text-accent;
+    }
+  }
+
+  & strong {
+    @apply font-display font-bold text-foreground;
+  }
+
+  & em {
+    @apply italic text-accent;
+  }
+
+  & hr {
+    @apply border-none border-t-2 border-accent my-3;
+  }
+
+  & > *:first-child {
+    @apply mt-0;
+  }
+
+  & > *:last-child {
+    @apply mb-0;
+  }
+}
