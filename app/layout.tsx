@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     description:
       "Enchantress of digital ecosystems; making computers behave since 2006.",
   },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
