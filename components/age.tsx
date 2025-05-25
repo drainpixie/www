@@ -15,7 +15,7 @@ export default function Age({ birthday }: { birthday: Date }) {
   useEffect(() => {
     const interval = setInterval(update, 1);
     return () => clearInterval(interval);
-  }, []);
+  });
 
   return <span ref={ref} />;
 }

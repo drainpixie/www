@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Libre_Franklin } from "next/font/google";
 
 import "./globals.css";
-import Navbar, { INavbarItem } from "@/ui/navbar";
-import ClickSound from "@/ui/click-sound";
-import Cursor from "@/ui/cursor";
+import Navbar, { INavbarItem } from "@/components/navbar";
+import ClickSound from "@/components/click-sound";
+import Cursor from "@/components/cursor";
 
 const inter = Inter({
   subsets: ["latin"],

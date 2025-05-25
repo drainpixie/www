@@ -1,5 +1,5 @@
-import { Experience } from "@/ui/experience";
-import { Project } from "@/ui/project";
+import { Experience } from "@/components/experience";
+import { Project } from "@/components/project";
 
 interface ISocialMedia {
   url: string;

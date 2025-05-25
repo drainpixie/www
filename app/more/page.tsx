@@ -1,4 +1,4 @@
-import Age from "@/ui/age";
+import Age from "@/components/age";
 
 export default async function Home() {
   return (
@@ -27,6 +27,12 @@ export default async function Home() {
             kinds of music genres
           </li>
           <li>I can type an average of 150 words per minute</li>
+          <li>
+            My favourite colour is{" "}
+            <span className="px-1 py-[0.1em] bg-favourite">
+              oklch(0.8398 0.0561 5.82)
+            </span>
+          </li>
         </ul>
       </div>
 
