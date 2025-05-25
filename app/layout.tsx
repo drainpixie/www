@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Libre_Franklin } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 import Navbar, { INavbarItem } from "@/components/navbar";
@@ -57,6 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${libre.variable} max-w-md`}>
+        <Analytics />
         <Cursor />
         <ClickSound />
 
