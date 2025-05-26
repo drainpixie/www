@@ -92,7 +92,7 @@ a {
   & h4,
   & h5,
   & h6 {
-    @apply font-display font-bold text-foreground mt-6 mb-3;
+    @apply font-display font-bold text-foreground mt-6;
     line-height: 1.2;
 
     & a {
@@ -129,7 +129,7 @@ a {
 
   & ul,
   & ol {
-    @apply font-body text-xs text-foreground mt-3 mb-3 pl-0;
+    @apply font-body text-xs text-foreground mb-3 pl-0;
 
     & li {
       @apply mb-0.5;

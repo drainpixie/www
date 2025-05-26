@@ -59,7 +59,7 @@ export default async function Page({ params }: IParams) {
   if (!post) return notFound();
 
   return (
-    <section className="pb-10">
+    <section className="md:pb-10 pb-26">
       <article className="prose">
         <MDXRemote source={post.content} components={components} />
       </article>

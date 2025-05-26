@@ -10,7 +10,6 @@ export default function Cursor() {
   const [isInViewport, setIsInViewport] = useState(true);
 
   useEffect(() => {
-    // Detect touch device
     const checkTouchDevice = () => {
       setIsTouchDevice(
         "ontouchstart" in window ||
@@ -21,18 +20,14 @@ export default function Cursor() {
 
     checkTouchDevice();
 
-    // Listen for changes in pointer type (e.g., external mouse connected to tablet)
     const mediaQuery = window.matchMedia("(pointer: coarse)");
     const handleMediaChange = () => checkTouchDevice();
     mediaQuery.addEventListener("change", handleMediaChange);
 
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
-    };
+    return () => mediaQuery.removeEventListener("change", handleMediaChange);
   }, []);
 
   useEffect(() => {
-    // Don't attach mouse listeners on touch devices
     if (isTouchDevice) return;
 
     const moveCursor = (e: MouseEvent) =>
@@ -64,7 +59,6 @@ export default function Cursor() {
     };
   }, [isTouchDevice]);
 
-  // Don't render on touch devices
   if (isTouchDevice) return null;
 
   return (
