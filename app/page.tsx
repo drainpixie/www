@@ -38,7 +38,7 @@ export default function Home() {
         <h2>Philosophy</h2>
         <ul className="[&>*]:list-[square]">
           <li>Programming is an artistic craft.</li>
-          <li>Beauty lies within purposeful functional.</li>
+          <li>Beauty lies within purposeful function.</li>
           <li>Form follows logic, clarity, and intention.</li>
         </ul>
       </div>
