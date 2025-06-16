@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description:
     "Enchantress of digital ecosystems; making computers behave since 2006.",
   keywords:
-    "Faye Keller, Faye, Keller, Enchantress, Digital Ecosystems, Computers, Software, Programming, Web Development, Frontend, Backend, DevOps, Open Source, Notaio, CodeFairy",
+    "Faye Keller, Faye, Keller, Enchantress, Digital Ecosystems, Computers, Software, Programming, Web Development, Frontend, Backend, DevOps, Open Source, Notaio",
 
   openGraph: {
     type: "website",

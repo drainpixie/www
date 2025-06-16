@@ -42,7 +42,6 @@ export async function generateMetadata({ params }: IParams) {
           "DevOps",
           "Open Source",
           "Notaio",
-          "CodeFairy",
         ],
       },
     },

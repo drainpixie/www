@@ -71,12 +71,6 @@ export default function Home() {
             description="an OSS knowledgebase"
             stack={["Svelte", "SvelteKit", "TypeScript", "TailwindCSS", "SQL"]}
           />
-          <Project
-            href="https://git.sr.ht/~pixie/codefairy"
-            name="CodeFairy"
-            description="an AI-enhanced code reviewer"
-            stack={["TypeScript", "React", "Next.js", "TailwindCSS", "AI"]}
-          />
         </ul>
       </div>
     </div>
