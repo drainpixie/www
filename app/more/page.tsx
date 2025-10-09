@@ -53,12 +53,8 @@ export default async function Home() {
         <h2>Software</h2>
         <ul className="[&>*]:list-[square]">
           <li>
-            <a
-              href="https://www.gnu.org/software/bash/"
-              target="_blank"
-              rel="noopener"
-            >
-              Bash
+            <a href="https://www.zsh.org/" target="_blank" rel="noopener">
+              Zsh
             </a>
           </li>
           <li>
@@ -157,11 +153,11 @@ export default async function Home() {
             </a>
             ,{" "}
             <a
-              href="https://github.com/cococonscious/koji"
+              href="https://github.com/convco/convco"
               target="_blank"
               rel="noopener"
             >
-              koji
+              convco
             </a>
             ,{" "}
             <a

@@ -47,6 +47,12 @@ export default function Home() {
         <h2>Experience</h2>
         <ul>
           <Experience
+            company="Open Source"
+            role="Software Engineer"
+            start="2024"
+            end="Present"
+          />
+          <Experience
             company="Undisclosed"
             role="DevOps Engineer"
             start="2023"
@@ -70,6 +76,12 @@ export default function Home() {
             name="Notaio"
             description="an OSS knowledgebase"
             stack={["Svelte", "SvelteKit", "TypeScript", "TailwindCSS", "SQL"]}
+          />
+          <Project
+            href="https://github.com/amperser/proselint"
+            name="Proselint"
+            description="a linter for English prose"
+            stack={["Python", "Pytest", "GitHub Actions"]}
           />
         </ul>
       </div>
