@@ -10,7 +10,7 @@ export default function Home() {
   const socialMedia: ISocialMedia[] = [
     { url: "https://git.sr.ht/~pixie", label: "SourceHut" },
     { url: "https://github.com/drainpixie", label: "GitHub" },
-    { url: "https://www.linkedin.com/in/faye-keller", label: "LinkedIn" },
+    { url: "https://matrix.to/#/@pixie:kludgecs.com", label: "Matrix" },
   ];
 
   return (
