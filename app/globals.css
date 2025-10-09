@@ -64,7 +64,7 @@ p {
 }
 
 ul {
-  @apply list-inside font-body text-xs list-none;
+  @apply list-inside font-body text-xs pl-[1px];
 }
 
 ul li {
