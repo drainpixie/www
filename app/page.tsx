@@ -44,30 +44,6 @@ export default function Home() {
       </div>
 
       <div>
-        <h2>Experience</h2>
-        <ul>
-          <Experience
-            company="Open Source"
-            role="Software Engineer"
-            start="2024"
-            end="Present"
-          />
-          <Experience
-            company="Undisclosed"
-            role="DevOps Engineer"
-            start="2023"
-            end="2024"
-          />
-          <Experience
-            company="Freelance"
-            role="Software Engineer"
-            start="2022"
-            end="2023"
-          />
-        </ul>
-      </div>
-
-      <div>
         <h2>Projects</h2>
 
         <ul>
