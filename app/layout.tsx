@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 import Navbar, { INavbarItem } from "@/components/navbar";
@@ -43,7 +42,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-inter font-libre max-w-md">
-        <Analytics />
         <Cursor />
         <ClickSound />
 
