@@ -1,25 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Libre_Franklin } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 import Navbar, { INavbarItem } from "@/components/navbar";
 import ClickSound from "@/components/click-sound";
 import Cursor from "@/components/cursor";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  fallback: ["Inter", "sans-serif"],
-});
-
-const libre = Libre_Franklin({
-  subsets: ["latin"],
-  variable: "--font-libre",
-  display: "swap",
-  fallback: ["Libre Franklin", "sans-serif"],
-});
 
 export const metadata: Metadata = {
   title: "Faye Keller",
@@ -57,7 +42,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${libre.variable} max-w-md`}>
+      <body className="font-inter font-libre max-w-md">
         <Analytics />
         <Cursor />
         <ClickSound />

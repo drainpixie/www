@@ -1,6 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Libre+Franklin:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.font-libre {
+  font-family: var(--font-libre);
+}
+
 :root {
+  --font-inter: "Inter", sans-serif;
+  --font-libre: "Libre Franklin", sans-serif;
+
   --background: oklch(0.98 0.01 90);
   --background-secondary: oklch(0.7525 0.0095 106.6);
   --foreground: oklch(0.1 0 0);
@@ -31,6 +43,7 @@ body {
 
 body {
   @apply text-foreground p-10;
+  font-family: var(--font-inter);
 }
 
 body::before {

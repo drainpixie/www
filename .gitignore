@@ -44,3 +44,4 @@ next-env.d.ts
 !.envrc
 \.pre-commit-config.yaml
 .direnv/
+result/

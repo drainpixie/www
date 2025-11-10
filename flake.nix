@@ -13,15 +13,16 @@
   }:
     utils.lib.eachDefaultSystem (
       system: let
-        pkgs = import nixpkgs {inherit system;};
+        pkgs = nixpkgs.legacyPackages.${system};
         check = self.checks.${system}.pre-commit-check;
       in {
+        packages.default = pkgs.callPackage ./site.nix {};
+
         devShell = pkgs.mkShell {
           inherit (check) shellHook;
-          packages =
+          buildInputs =
             builtins.attrValues {
-              inherit (pkgs) nodejs_latest;
-              inherit (pkgs.nodePackages_latest) pnpm;
+              inherit (pkgs) nodejs pnpm;
             }
             ++ check.enabledPackages;
         };
