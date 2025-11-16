@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getBlogPosts } from "../utils";
 import { MDXComponents } from "mdx/types";
+import { Metadata } from "next";
 
 interface IParams {
   params: Promise<{ slug: string }>;
@@ -12,7 +13,7 @@ export async function generateStaticParams() {
   return posts.map(({ slug }) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: IParams) {
+export async function generateMetadata({ params }: IParams): Promise<Metadata> {
   const slug = (await params).slug;
   const metadata = (await getBlogPosts()).find(
     ({ slug: post }) => post === slug,
@@ -20,30 +21,27 @@ export async function generateMetadata({ params }: IParams) {
 
   return {
     title: metadata?.metadata.title,
-    description: metadata?.metadata.description,
     openGraph: {
       type: "article",
-      article: {
-        publishedTime: metadata?.metadata.date,
-        authors: ["Faye Keller"],
-        section: "Blog",
-        tags: [
-          "Faye Keller",
-          "Faye",
-          "Keller",
-          "Enchantress",
-          "Digital Ecosystems",
-          "Computers",
-          "Software",
-          "Programming",
-          "Web Development",
-          "Frontend",
-          "Backend",
-          "DevOps",
-          "Open Source",
-          "Notaio",
-        ],
-      },
+      publishedTime: metadata?.metadata.date,
+      authors: ["Faye Keller"],
+      section: "Blog",
+      tags: [
+        "Faye Keller",
+        "Faye",
+        "Keller",
+        "Enchantress",
+        "Digital Ecosystems",
+        "Computers",
+        "Software",
+        "Programming",
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "DevOps",
+        "Open Source",
+        "Notaio",
+      ],
     },
   };
 }

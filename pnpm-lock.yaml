@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      "@fontsource/ia-writer-quattro":
+        specifier: ^5.2.5
+        version: 5.2.5
       "@mdx-js/loader":
         specifier: ^3.1.1
         version: 3.1.1
@@ -268,6 +271,12 @@ packages:
         integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==,
       }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
+
+  "@fontsource/ia-writer-quattro@5.2.5":
+    resolution:
+      {
+        integrity: sha512-aCQ3n2B4VFAIiV3RFuDPe4cog2L9G7+9I9AwiwMZeFMM3fJoZrXhy01LdiqERDFnqKSFRIiibbhwQn/ucYkCGQ==,
+      }
 
   "@humanfs/core@0.19.1":
     resolution:
@@ -4100,6 +4109,8 @@ snapshots:
     dependencies:
       "@eslint/core": 0.17.0
       levn: 0.4.1
+
+  "@fontsource/ia-writer-quattro@5.2.5": {}
 
   "@humanfs/core@0.19.1": {}
 

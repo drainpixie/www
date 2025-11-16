@@ -7,7 +7,6 @@ const POSTS_DIRECTORY = resolve(process.cwd(), "posts");
 export interface IMetadata {
   date: string;
   title: string;
-  description: string;
 }
 
 function parseFrontMatter(file: string): {

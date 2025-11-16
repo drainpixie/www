@@ -1,4 +1,3 @@
-import { Experience } from "@/components/experience";
 import { Project } from "@/components/project";
 
 interface ISocialMedia {
@@ -36,7 +35,7 @@ export default function Home() {
 
       <div>
         <h2>Philosophy</h2>
-        <ul className="[&>*]:list-[square]">
+        <ul>
           <li>Programming is an artistic craft.</li>
           <li>Beauty lies within purposeful function.</li>
           <li>Form follows logic, clarity, and intention.</li>
@@ -51,13 +50,11 @@ export default function Home() {
             href="https://git.sr.ht/~pixie/notaio"
             name="Notaio"
             description="an OSS knowledgebase"
-            stack={["Svelte", "SvelteKit", "TypeScript", "TailwindCSS", "SQL"]}
           />
           <Project
             href="https://github.com/amperser/proselint"
             name="Proselint"
             description="a linter for English prose"
-            stack={["Python", "Pytest", "GitHub Actions"]}
           />
         </ul>
       </div>

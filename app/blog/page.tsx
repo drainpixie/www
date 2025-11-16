@@ -3,16 +3,10 @@ import { formatDate, getBlogPosts, IMetadata } from "./utils";
 
 function Post({ metadata, slug }: { metadata: IMetadata; slug: string }) {
   return (
-    <li className="grid grid-cols-[1fr] items-start pb-1">
-      <Link
-        href={`/blog/${slug}`}
-        className="block !no-underline !text-foreground"
-      >
-        <div className="text-xs">
-          <span className="font-bold">{metadata.title}</span>{" "}
-          <span className="text-accent">{formatDate(metadata.date)}</span>
-        </div>
-        <div className="col-span-2">{metadata.description}</div>
+    <li>
+      <Link href={`/blog/${slug}`} className="!not-italic !text-foreground">
+        <span>{metadata.title}</span>{" "}
+        <span className="text-accent">{formatDate(metadata.date)}</span>
       </Link>
     </li>
   );

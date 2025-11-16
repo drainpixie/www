@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+import "@fontsource/ia-writer-quattro/400.css";
+import "@fontsource/ia-writer-quattro/700.css";
+
 import "./globals.css";
 import Navbar, { INavbarItem } from "@/components/navbar";
 import ClickSound from "@/components/click-sound";
@@ -41,7 +44,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="font-inter font-libre max-w-md">
+      <body className="font-body max-w-lg">
         <Cursor />
         <ClickSound />
 

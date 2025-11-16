@@ -1,18 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Libre+Franklin:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
-.font-inter {
-  font-family: var(--font-inter);
-}
-
-.font-libre {
-  font-family: var(--font-libre);
-}
-
 :root {
-  --font-inter: "Inter", sans-serif;
-  --font-libre: "Libre Franklin", sans-serif;
-
   --background: oklch(0.98 0.01 90);
   --background-secondary: oklch(0.7525 0.0095 106.6);
   --foreground: oklch(0.1 0 0);
@@ -28,8 +16,8 @@
   --color-accent: var(--accent);
   --color-favourite: var(--favourite);
 
-  --font-body: var(--font-libre);
-  --font-display: var(--font-inter);
+  --font-body: "IA Writer Quattro", sans-serif;
+  --font-display: "IA Writer Quattro", sans-serif;
 }
 
 html,
@@ -42,21 +30,8 @@ body {
 }
 
 body {
-  @apply text-foreground p-10;
-  font-family: var(--font-inter);
-}
-
-body::before {
-  content: "";
-
-  @apply fixed top-0 left-0 w-screen h-screen scale-[1.1] z-[-1] backdrop-blur-xl;
-
-  background: radial-gradient(
-    circle at 30% 30%,
-    var(--background),
-    var(--background),
-    var(--color-background-secondary)
-  );
+  @apply text-foreground font-body p-10;
+  background-color: var(--color-background);
 }
 
 h1,
@@ -77,19 +52,11 @@ p {
 }
 
 ul {
-  @apply list-inside font-body text-xs pl-[1px];
-}
-
-ul li {
-  @apply mb-0.5;
-}
-
-ul li:last-child {
-  @apply mb-0;
+  @apply list-inside font-body text-xs list-[square] pl-[1px];
 }
 
 a {
-  @apply text-accent underline underline-offset-2;
+  @apply text-accent italic underline;
 
   &:hover {
     @apply text-foreground;

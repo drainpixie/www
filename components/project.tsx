@@ -3,22 +3,19 @@
 interface IProjectProps {
   name: string;
   href: string;
-  stack: string[];
   description: string;
 }
 
-export function Project({ name, description, stack, href }: IProjectProps) {
+export function Project({ name, description, href }: IProjectProps) {
   return (
-    <li className="cursor-pointer pb-1 last:pb-0">
+    <li className="cursor-pointer">
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="!no-underline !text-foreground"
+        className="!not-italic !text-foreground"
       >
-        <b>{name}</b>, <span>{description}</span>
-        <br />
-        <span>{stack.join(", ")}</span>
+        {name}, <span>{description}</span>
       </a>
     </li>
   );
