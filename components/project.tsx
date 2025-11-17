@@ -13,7 +13,7 @@ export function Project({ name, description, href }: IProjectProps) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="!not-italic !text-foreground"
+        className="!not-italic"
       >
         {name}, <span>{description}</span>
       </a>

@@ -1,6 +1,6 @@
-import { MonitorWithMetrics } from "../../lib/kuma/types";
-import { fetchMonitorsWithMetrics } from "../../lib/kuma/api";
-import { default as MonitorItem } from "../../components/monitor-item";
+import { MonitorWithMetrics } from "@/lib/kuma/types";
+import { fetchMonitorsWithMetrics } from "@/lib/kuma/api";
+import { default as MonitorItem } from "@/components/monitor-item";
 
 export default async function MonitorsPage() {
   let monitors: MonitorWithMetrics[] = [];

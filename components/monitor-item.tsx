@@ -1,9 +1,9 @@
-import { MonitorWithMetrics } from "../lib/kuma/types";
+import { MonitorWithMetrics } from "@/lib/kuma/types";
 import {
   statusText,
   statusColorClasses,
   formatPercent,
-} from "../lib/kuma/utils";
+} from "@/lib/kuma/utils";
 
 interface MonitorItemProps {
   monitor: MonitorWithMetrics;
@@ -26,7 +26,7 @@ export default function MonitorItem({ monitor }: MonitorItemProps) {
             href={monitor.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline !text-foreground"
+            className="hover:underline"
           >
             {monitor.name}
           </a>

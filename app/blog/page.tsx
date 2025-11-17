@@ -4,7 +4,7 @@ import { formatDate, getBlogPosts, IMetadata } from "./utils";
 function Post({ metadata, slug }: { metadata: IMetadata; slug: string }) {
   return (
     <li>
-      <Link href={`/blog/${slug}`} className="!not-italic !text-foreground">
+      <Link href={`/blog/${slug}`} className="!not-italic">
         <span>{metadata.title}</span>{" "}
         <span className="text-accent">{formatDate(metadata.date)}</span>
       </Link>
