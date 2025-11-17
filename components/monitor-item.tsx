@@ -1,0 +1,66 @@
+import { MonitorWithMetrics } from "../lib/kuma/types";
+import {
+  statusText,
+  statusColorClasses,
+  formatPercent,
+} from "../lib/kuma/utils";
+
+interface MonitorItemProps {
+  monitor: MonitorWithMetrics;
+}
+
+export default function MonitorItem({ monitor }: MonitorItemProps) {
+  const { text, bg } = statusColorClasses(monitor.currentStatus);
+  const latest = monitor.latestHeartbeat;
+
+  const detailParts: string[] = [];
+  if (latest?.msg) detailParts.push(latest.msg);
+  if (typeof latest?.ping === "number") detailParts.push(`${latest.ping} ms`);
+  const details = detailParts.length ? detailParts.join(" · ") : "—";
+
+  return (
+    <li className="[&>*]:mr-2 text-nowrap">
+      <span className="font-body italic">
+        {monitor.url ? (
+          <a
+            href={monitor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            {monitor.name}
+          </a>
+        ) : (
+          monitor.name
+        )}
+      </span>
+
+      {monitor.type && (
+        <span className="text-gray-500 text-xs flex-shrink-0">
+          {monitor.type}
+        </span>
+      )}
+
+      <span
+        title={`Status: ${statusText(monitor.currentStatus)}`}
+        className={`text-xs ${text} ${bg} px-1.5 rounded flex-shrink-0`}
+      >
+        {statusText(monitor.currentStatus)}
+      </span>
+
+      <span
+        title="Latest heartbeat"
+        className="text-gray-700 text-xs overflow-hidden text-ellipsis flex-1"
+      >
+        {details}
+      </span>
+
+      <span
+        title="Uptime (last 24h)"
+        className="text-gray-900 text-xs flex-shrink-0"
+      >
+        {formatPercent(monitor.uptime24h)}
+      </span>
+    </li>
+  );
+}

@@ -9,7 +9,7 @@ export default async function Home() {
 
       <div>
         <h2>Fun Facts</h2>
-        <ul className="[&>*]:list-[square]">
+        <ul>
           <li>I speak multiple languages</li>
           <li>I play Pokémon competitively</li>
           <li>
@@ -38,7 +38,7 @@ export default async function Home() {
 
       <div>
         <h2>Hardware</h2>
-        <ul className="[&>*]:list-[square]">
+        <ul>
           <li>iPhone 13</li>
           <li>Moondrop CHU II</li>
           <li>Nintendo DSi Red</li>
@@ -51,7 +51,7 @@ export default async function Home() {
 
       <div>
         <h2>Software</h2>
-        <ul className="[&>*]:list-[square]">
+        <ul>
           <li>
             <a href="https://www.zsh.org/" target="_blank" rel="noopener">
               Zsh

@@ -40,6 +40,7 @@ export default function RootLayout({
     { url: "/", label: "Home" },
     { url: "/blog", label: "Blog" },
     { url: "/more", label: "More" },
+    { url: "/ping", label: "Ping" },
   ];
 
   return (
