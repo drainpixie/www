@@ -47,7 +47,17 @@ export default function Home() {
 
         <ul>
           <Project
-            href="https://git.sr.ht/~pixie/notaio"
+            href="https://github.com/kludge-cs/docile"
+            name="Docile"
+            description="a document tamer"
+          />
+          <Project
+            href="https://github.com/drainpixie/zero"
+            name="Zero"
+            description="a dynamic web server"
+          />
+          <Project
+            href="https://github.com/drainpixie/notaio"
             name="Notaio"
             description="an OSS knowledgebase"
           />
