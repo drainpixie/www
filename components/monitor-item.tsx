@@ -26,7 +26,7 @@ export default function MonitorItem({ monitor }: MonitorItemProps) {
             href={monitor.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline"
+            className="hover:underline !text-foreground"
           >
             {monitor.name}
           </a>
@@ -36,7 +36,7 @@ export default function MonitorItem({ monitor }: MonitorItemProps) {
       </span>
 
       {monitor.type && (
-        <span className="text-gray-500 text-xs flex-shrink-0">
+        <span className="text-accent text-xs flex-shrink-0">
           {monitor.type}
         </span>
       )}
@@ -50,14 +50,14 @@ export default function MonitorItem({ monitor }: MonitorItemProps) {
 
       <span
         title="Latest heartbeat"
-        className="text-gray-700 text-xs overflow-hidden text-ellipsis flex-1"
+        className="text-accent text-xs overflow-hidden text-ellipsis flex-1"
       >
         {details}
       </span>
 
       <span
         title="Uptime (last 24h)"
-        className="text-gray-900 text-xs flex-shrink-0"
+        className="text-foreground text-xs flex-shrink-0"
       >
         {formatPercent(monitor.uptime24h)}
       </span>

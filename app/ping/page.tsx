@@ -9,7 +9,7 @@ export default async function MonitorsPage() {
   try {
     monitors = await fetchMonitorsWithMetrics();
   } catch (e: any) {
-    error = e?.message || "Unknown error";
+    error = e?.message ?? "Unknown error";
   }
 
   return (

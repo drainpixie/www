@@ -35,6 +35,7 @@ export function getLatestHeartbeat(
   list?: KumaHeartbeat[],
 ): KumaHeartbeat | undefined {
   if (!list || list.length === 0) return undefined;
+
   return list.reduce((latest, curr) =>
     new Date(curr.time).getTime() > new Date(latest.time).getTime()
       ? curr
