@@ -4,9 +4,17 @@
   pnpm,
   nodejs,
   typescript,
-}:
+  ...
+} @ args:
 stdenv.mkDerivation (final: let
   manifest = lib.importJSON ./package.json;
+  env = builtins.removeAttrs args [
+    "lib"
+    "stdenv"
+    "pnpm"
+    "nodejs"
+    "typescript"
+  ];
 in {
   src = ./.;
   pname = manifest.name;
@@ -23,15 +31,22 @@ in {
   };
 
   nativeBuildInputs = [nodejs typescript pnpm.configHook];
+
   buildPhase = ''
     runHook preBuild
 
+    echo "${lib.concatStringsSep "\n" (lib.mapAttrsToList (k: v: "${k}=${v}") env)}" > .env
     pnpm run build
-    cp -r .next/standalone $out
-    cp -r .next/static $out/.next
 
     runHook postBuild
   '';
 
-  env.NODE_ENV = "production";
+  installPhase = ''
+    runHook preInstall
+
+    cp -r .next/standalone $out
+    cp -r .next/static $out/.next
+
+    runHook postInstall
+  '';
 })

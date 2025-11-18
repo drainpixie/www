@@ -64,9 +64,10 @@ export async function fetchMonitorsWithMetrics(): Promise<
   MonitorWithMetrics[]
 > {
   const baseUrl = process.env.KUMA_URL;
-  const slug = process.env.KUMA_SLUG ?? "rin";
+  const slug = process.env.KUMA_SLUG;
 
   if (!baseUrl) throw new Error("KUMA_URL environment variable is not set");
+  if (!slug) throw new Error("KUMA_SLUG environment variable is not set");
 
   const [monitors, heartbeats] = await Promise.all([
     fetchStatusPageMonitors(baseUrl, slug),

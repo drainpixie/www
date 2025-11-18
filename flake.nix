@@ -16,6 +16,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         check = self.checks.${system}.pre-commit-check;
       in {
+        lib.withEnv = pkgs.callPackage ./site.nix;
         packages.default = pkgs.callPackage ./site.nix {};
 
         devShell = pkgs.mkShell {
