@@ -46,6 +46,7 @@ in {
 
     cp -r .next/standalone $out
     cp -r .next/static $out/.next
+    cp -r public $out/public
 
     runHook postInstall
   '';
