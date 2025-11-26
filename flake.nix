@@ -1,44 +1,67 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    utils.url = "github:numtide/flake-utils";
     hooks.url = "github:cachix/git-hooks.nix";
   };
 
   outputs = {
     self,
-    utils,
     hooks,
     nixpkgs,
-  }:
-    utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-        check = self.checks.${system}.pre-commit-check;
-      in {
-        lib.withEnv = pkgs.callPackage ./site.nix;
-        packages.default = pkgs.callPackage ./site.nix {};
+  }: let
+    supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
 
-        devShell = pkgs.mkShell {
-          inherit (check) shellHook;
-          buildInputs =
-            builtins.attrValues {
-              inherit (pkgs) nodejs pnpm;
-            }
-            ++ check.enabledPackages;
-        };
+    forAllSystems = f:
+      nixpkgs.lib.genAttrs supportedSystems (system:
+        f {
+          pkgs = nixpkgs.legacyPackages.${system};
+          inherit system;
+        });
+  in {
+    lib = forAllSystems ({pkgs, ...}: {withEnv = pkgs.callPackage ./site.nix;});
+    packages = forAllSystems ({pkgs, ...}: {default = pkgs.callPackage ./site.nix {};});
 
-        checks = {
-          pre-commit-check = hooks.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              convco.enable = true;
-              eslint.enable = true;
-              prettier.enable = true;
-              alejandra.enable = true;
-            };
+    devShells = forAllSystems ({
+      pkgs,
+      system,
+    }: let
+      check = self.checks.${system}.pre-commit;
+    in {
+      default = pkgs.mkShell {
+        inherit (check) shellHook;
+        buildInputs =
+          builtins.attrValues {
+            inherit (pkgs) nodejs pnpm;
+          }
+          ++ check.enabledPackages;
+      };
+    });
+
+    checks = forAllSystems ({
+      pkgs,
+      system,
+    }: {
+      pre-commit = hooks.lib.${system}.run {
+        src = ./.;
+        package = pkgs.prek;
+
+        hooks = {
+          eslint = {
+            enable = true;
+            entry = "pnpm eslint";
+            files = "\\.(ts|js|tsx|jsx)$";
           };
+
+          prettier = {
+            enable = true;
+            excludes = ["flake.lock"];
+          };
+
+          statix.enable = true;
+          convco.enable = true;
+          alejandra.enable = true;
         };
-      }
-    );
+      };
+    });
+  };
 }

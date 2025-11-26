@@ -16,9 +16,9 @@ stdenv.mkDerivation (final: let
     "typescript"
   ];
 in {
+  inherit (manifest) version;
   src = ./.;
   pname = manifest.name;
-  version = manifest.version;
 
   # WARN: Only for semver, not worth the hassle
   dontCheckForBrokenSymlinks = true;
