@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 import "@fontsource/ia-writer-quattro/400.css";
 import "@fontsource/ia-writer-quattro/700.css";
@@ -53,6 +54,11 @@ export default function RootLayout({
         <h1>Faye Keller</h1>
 
         <div id="content-wrapper">{children}</div>
+
+        <Script
+          src="https://stat.drainpixie.xyz/catz_r_cool.meow.js"
+          data-website-id="1f4caadc-a778-474e-974d-951fd3a50a11"
+        />
       </body>
     </html>
   );
